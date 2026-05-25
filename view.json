@@ -1,0 +1,77 @@
+{
+	"name" : "ToolsUom",
+	"display_name" : "Units of measurements View",
+	"description" : "<p>TMS Units of measurements View</p>",
+	"module_type" : "views",
+	"app_type" : "tms",
+	"category" : "admin",
+	"version" : "0.0.0",
+	"repo" : "https://github.com/sp-tms/tms-views-admin-default-toolsuom",
+	"dependencies" : 
+	{
+		"core" : 
+		{
+			"name" : "Core",
+			"version" : "0.0.0-rc.15",
+			"repo" : "https://github.com/sp-framework/core"
+		},
+		"apptype" : 
+		{
+			"name" : "Transport Management System",
+			"version" : "0.0.0",
+			"repo" : "https://github.com/sp-tms/tms"
+		},
+		"packages" : [],
+		"views" : 
+		[
+			{
+				"name" : "Default",
+				"version" : "0.0.0",
+				"repo" : "https://github.com/sp-tms/tms-views-tools-default"
+			}
+		]
+	},
+	"is_subview" : true,
+	"settings" : 
+	{
+		"head" : 
+		{
+			"link" : 
+			{
+				"href" : 
+				{
+					"assets" : 
+					{
+						"dev" : [],
+						"prod" : []
+					}
+				}
+			},
+			"script" : 
+			{
+				"src" : 
+				{
+					"assets" : 
+					{
+						"dev" : [],
+						"prod" : []
+					}
+				}
+			}
+		},
+		"footer" : 
+		{
+			"script" : 
+			{
+				"src" : 
+				{
+					"assets" : 
+					{
+						"dev" : [],
+						"prod" : []
+					}
+				}
+			}
+		}
+	}
+}
