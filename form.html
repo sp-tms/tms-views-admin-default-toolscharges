@@ -1,18 +1,20 @@
-{% if uom['id'] is defined %}
-    {% set uomId = uom['id'] %}
-    {% set uomName = uom['name'] %}
-    {% set uomArchived = uom['archived'] %}
-    {% set uomDescription = uom['description'] %}
+{% if charge['id'] is defined %}
+    {% set chargeId = charge['id'] %}
+    {% set chargeName = charge['name'] %}
+    {% set chargeType = charge['type'] %}
+    {% set chargeArchived = charge['archived'] %}
+    {% set chargeDescription = charge['description'] %}
 {% else %}
-    {% set uomId = '' %}
-    {% set uomName = '' %}
-    {% set uomArchived = '' %}
-    {% set uomDescription = '' %}
+    {% set chargeId = '' %}
+    {% set chargeName = '' %}
+    {% set chargeType = '' %}
+    {% set chargeArchived = '' %}
+    {% set chargeDescription = '' %}
 {% endif %}
-{% if uomArchived == '1' %}
-    {% set uomArchivedChecked = true %}
+{% if chargeArchived == '1' %}
+    {% set chargeArchivedChecked = true %}
 {% else %}
-    {% set uomArchivedChecked = false %}
+    {% set chargeArchivedChecked = false %}
 {% endif %}
 <form data-validateon="section" id="{{componentId}}-{{sectionId}}-form">
     <fieldset id="{{componentId}}-{{sectionId}}-fieldset">
@@ -28,14 +30,14 @@
                         'fieldLabel'                            : 'ID',
                         'fieldType'                             : 'input',
                         'fieldHelp'                             : true,
-                        'fieldHelpTooltipContent'               : 'Units of measurement ID',
+                        'fieldHelpTooltipContent'               : 'Charge ID',
                         'fieldRequired'                         : true,
                         'fieldBazScan'                          : true,
                         'fieldBazPostOnCreate'                  : false,
                         'fieldBazPostOnUpdate'                  : true,
                         'fieldHidden'                           : true,
                         'fieldDisabled'                         : true,
-                        'fieldValue'                            : uomId
+                        'fieldValue'                            : chargeId
                     ]
                 )}}
             </div>
@@ -49,7 +51,7 @@
                         'componentId'                           : componentId,
                         'sectionId'                             : sectionId,
                         'fieldId'                               : 'name',
-                        'fieldLabel'                            : 'Units of measurement Name',
+                        'fieldLabel'                            : 'Charge Name',
                         'fieldType'                             : 'input',
                         'fieldHelp'                             : true,
                         'fieldHelpTooltipContent'               : 'Units of measurement Name Example: Litres',
@@ -59,7 +61,32 @@
                         'fieldBazPostOnUpdate'                  : true,
                         'fieldDataInputMinLength'               : 1,
                         'fieldDataInputMaxLength'               : 100,
-                        'fieldValue'                            : uomName
+                        'fieldValue'                            : chargeName
+                    ]
+                )}}
+            </div>
+            <div class="col">
+                {{adminltetags.useTag('fields',
+                    [
+                        'component'                             : component,
+                        'componentName'                         : componentName,
+                        'componentId'                           : componentId,
+                        'sectionId'                             : sectionId,
+                        'fieldId'                               : 'type',
+                        'fieldLabel'                            : 'Type',
+                        'fieldType'                             : 'select2',
+                        'fieldHelp'                             : true,
+                        'fieldHelpTooltipContent'               : "Select charge type",
+                        'fieldRequired'                         : true,
+                        'fieldBazScan'                          : true,
+                        'fieldBazJstreeSearch'                  : true,
+                        'fieldBazPostOnCreate'                  : true,
+                        'fieldBazPostOnUpdate'                  : true,
+                        'fieldDataSelect2Options'               : chargeTypes,
+                        'fieldDataSelect2OptionsKey'            : 'id',
+                        'fieldDataSelect2OptionsValue'          : 'name',
+                        'fieldDataSelect2OptionsArray'          : true,
+                        'fieldDataSelect2OptionsSelected'       : chargeType
                     ]
                 )}}
             </div>
@@ -73,10 +100,10 @@
                         'fieldId'                        : 'archived',
                         'fieldLabel'                     : 'Archived?',
                         'fieldHelp'                      : true,
-                        'fieldHelpTooltipContent'        : 'Check to archive uom.',
+                        'fieldHelpTooltipContent'        : 'Check to archive charge.',
                         'fieldType'                      : 'checkbox',
                         'fieldCheckboxType'              : 'danger',
-                        'fieldCheckboxChecked'           : uomArchivedChecked,
+                        'fieldCheckboxChecked'           : chargeArchivedChecked,
                         'fieldCheckboxAdditionClass'     : 'text-sm text-uppercase',
                         'fieldBazScan'                   : true,
                         'fieldDisabled'                  : false,
@@ -107,7 +134,7 @@
                         'fieldBazPostOnUpdate'           : true,
                         'fieldDataInputMaxLength'        : 2048,
                         'fieldTextareaRows'              : 2,
-                        'fieldValue'                     : uomDescription
+                        'fieldValue'                     : chargeDescription
                     ]
                 )}}
             </div>
@@ -144,6 +171,9 @@ dataCollectionSection =
     $.extend(dataCollectionSection, {
         '{{componentId}}-{{sectionId}}-id'                          : { },
         '{{componentId}}-{{sectionId}}-name'                        : { },
+        '{{componentId}}-{{sectionId}}-type'                        : {
+            placeholder: 'SELECT CHARGE TYPE'
+        },
         '{{componentId}}-{{sectionId}}-description'                 : { },
         '{{componentId}}-{{sectionId}}-archived'                    : { },
         '{{componentId}}-{{sectionId}}-form' : {

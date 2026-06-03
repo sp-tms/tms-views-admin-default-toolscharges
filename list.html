@@ -8,7 +8,7 @@
         'contentType'           : 'sectionWithListing',
         'cardHeader'            : true,
         'cardType'              : 'primary',
-        'cardIcon'              : 'ruler',
+        'cardIcon'              : 'list',
         'cardTitle'             : componentName,
         'cardAdditionalClass'   : 'rounded-0',
         'cardShowTools'         : ['maximize'],
@@ -23,14 +23,14 @@
                 'buttonType'            : 'button',
                 'buttons'               :
                     {
-                        'add-uom' : {
-                            'title'                   : 'Add Units Of Measurement',
+                        'add-charge' : {
+                            'title'                   : 'Add New Charge',
                             'size'                    : 'sm',
                             'type'                    : 'primary',
                             'icon'                    : 'plus',
                             'buttonAdditionalClass'   : 'contentAjaxLink',
                             'position'                : 'right',
-                            'url'                     : links.url('system/tools/uom/q/id/0')
+                            'url'                     : links.url('tools/charges/q/id/0')
                         }
                     }
             },
@@ -44,6 +44,6 @@
         'dtHideIdColumn'        : true,
         'dtNoOfColumnsToShow'   : 6,
         'dtTableCompact'        : true,
-        'dtZeroRecords'         : 'No units of measurements data available. Add units of measurement by clicking the Add new units of measurement button.'
+        'dtZeroRecords'         : 'No charge data available. Add charge by clicking the Add new charge button.'
     ]
 )}}

@@ -1,9 +1,9 @@
-{% if uom['id'] is defined %}
-    {% set uomId = uom['id'] %}
-    {% set title = 'Unit of measurement (' ~ uom['name'] ~ ')' %}
+{% if charges['id'] is defined %}
+    {% set chargesId = charges['id'] %}
+    {% set title = 'Charge (' ~ charges['name'] ~ ')' %}
 {% else %}
-    {% set uomId = '' %}
-    {% set title = 'New Unit of measurement' %}
+    {% set chargesId = '' %}
+    {% set title = 'New Charge' %}
 {% endif %}
 {{adminltetags.useTag('content',
     [
@@ -16,19 +16,19 @@
         'cardHeader'                    : true,
         'cardFooter'                    : true,
         'cardType'                      : 'primary',
-        'cardIcon'                      : 'building',
+        'cardIcon'                      : 'list',
         'cardTitle'                     : title,
         'cardAdditionalClass'           : 'rounded-0',
-        'cardBodyInclude'               : 'uom/form',
+        'cardBodyInclude'               : 'charges/form',
         'formButtons'                   :
         [
-            'updateButtonId'                : uomId,
-            'addActionUrl'                  : 'system/tools/uom/add',
-            'addSuccessRedirectUrl'         : 'system/tools/uom',
-            'updateActionUrl'               : 'system/tools/uom/update',
-            'updateSuccessRedirectUrl'      : 'system/tools/uom',
-            'cancelActionUrl'               : 'system/tools/uom',
-            'closeActionUrl'                : 'system/tools/uom'
+            'updateButtonId'                : chargesId,
+            'addActionUrl'                  : 'tools/charges/add',
+            'addSuccessRedirectUrl'         : 'tools/charges',
+            'updateActionUrl'               : 'tools/charges/update',
+            'updateSuccessRedirectUrl'      : 'tools/charges',
+            'cancelActionUrl'               : 'tools/charges',
+            'closeActionUrl'                : 'tools/charges'
         ]
     ]
 )}}

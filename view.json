@@ -1,12 +1,12 @@
 {
-	"name" : "ToolsUom",
-	"display_name" : "Units of measurements View",
-	"description" : "<p>TMS Units of measurements View</p>",
+	"name" : "ToolsCharges",
+	"display_name" : "Tools Charges View",
+	"description" : "<p>TMS Tools Charges View</p>",
 	"module_type" : "views",
 	"app_type" : "tms",
 	"category" : "admin",
 	"version" : "0.0.0",
-	"repo" : "https://github.com/sp-tms/tms-views-admin-default-toolsuom",
+	"repo" : "https://github.com/sp-tms/tms-views-admin-default-toolscharges",
 	"dependencies" : 
 	{
 		"core" : 
